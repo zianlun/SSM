@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zian.example.mapper.EmployeeMapper">
+   <insert id="insertEmployee" useGeneratedKeys="true" keyProperty="empId">
+        insert into employee(emp_id, emp_name, age, gender)
+        values(#{empId}, #{empName}, #{age}, #{gender})
+   </insert>
+    <!--当配置了setting之后，只要idea和sql都满足相应的命名方式，可以通过配置setting解决 -->
+   <!-- <select id="queryEmpById" resultType="Employee">
+        select * from employee
+        where emp_id = #{id}
+    </select>-->
+    <!--
+        resuletMap:设置自定义的映射关系
+        id:唯一标识
+        type：处理映射关系实体类的类型
+        id:处理主键和实体类的映射关系
+        result:处理普通字段和实体类的属性的映射关系
+        association:处理多对一的映射关系(处理实体类的属性)
+        column:设置映射关系中的字段名，必须是sql查询出的某个字段
+        property:设置映射关系中的属性名，必须是处理的实体类类型的属性名
+    -->
+    <resultMap id="resultMapEmp" type="Employee">
+        <id column="emp_id" property="empId"></id>
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+    </resultMap>
+    <select id="queryEmpById" resultMap="resultMapEmp">
+        select * from employee
+        where emp_id = #{id}
+    </select>
+    <resultMap id="resultMapEmpAndDep" type="Employee">
+        <id column="emp_id" property="empId"></id>
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+        <!--<result column="dep_id" property="department.depId"></result>
+        <result column="dep_name" property="department.depName"></result>-->
+        <!--
+            association:处理多对一的映射关系 处理实体类类型的属性
+            property:设置需要处理映射关系的属性的属性名
+            javaType:设置要处理的的属性的类型
+        -->
+        <association property="department" javaType="Department">
+            <id column="dep_id" property="depId"></id>
+            <result column="dep_name" property="depName"></result>
+        </association>
+    </resultMap>
+    <select id="queryEmpAndDepById" resultMap="resultMapEmpAndDep">
+        select * from employee
+        left join department on employee.dep_id = department.dep_id
+        where emp_id = #{id}
+    </select>
+</mapper>

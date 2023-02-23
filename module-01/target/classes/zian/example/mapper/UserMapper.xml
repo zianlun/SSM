@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zian.example.mapper.UserMapper">
+    <!--int insertUser();-->
+    <insert id="insertUser">
+        insert into user values(null,'lzjang','123456',23,'男','12345@qq.com'),
+                                (null,'lzjang','123456',23,'男','12345@qq.com')
+    </insert>
+    <update id="updateUser">
+        update user set username = 'zian'
+        where username = 'lzjang'
+    </update>
+    <delete id="deleteUser">
+        delete from user
+        where username='zian'
+    </delete>
+    <!--
+        resultType -> 设置结果类型，即查询的数据转换为java类型
+        resultMap -> 处理多对一和一对多的映射关系
+      -->
+    <select id="selectUser" resultType="zian.example.pojo.User">
+        select * from user;
+    </select>
+    <select id="selectOneUser" resultType="User">
+        select * from user where id = 2;
+    </select>
+</mapper>

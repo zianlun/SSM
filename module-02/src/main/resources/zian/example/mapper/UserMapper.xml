@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zian.example.mapper.UserMapper">
+    <select id="selectUserAge" resultType="User">
+        select * from user
+        where age >= 18
+    </select>
+    <select id="selectUserById" resultType="User">
+        select * from user
+        where id = ${id}
+    </select>
+    <select id="selectUserByName" resultType="User">
+        select * from user
+        where username = #{username}
+    </select>
+    <select id="verifyLogin" resultType="User">
+        select * from user
+        where username = #{arg0} and password = #{arg1}
+    </select>
+    <select id="queryUserByAgeAndGender" resultType="User">
+        select * from user
+        where age >= #{age} and gender = #{gender}
+    </select>
+    <insert id="insertUser">
+        insert into user
+        values(#{id}, #{username}, #{password}, #{age}, #{gender}, #{email})
+    </insert>
+    <select id="queryUserByIdParam" resultType="User">
+        select  * from user where id = #{id}
+    </select>
+    <update id="updatePassWord">
+        update user
+        set password = #{password}
+    </update>
+    <select id="querySumUser" resultType="Integer">
+        select count(id) from user
+        where id >= #{id}
+    </select>
+    <select id="queryUserByUserNameToMap" resultType="map">
+        select * from USER
+        where username = #{username}
+    </select>
+    <select id="queryUserByAge" resultType="map">
+        select * from user
+        where age >= #{minAge} and age &lt;= #{maxAge}
+    </select>
+    <select id="queryUserByAgeToMap" resultType="map">
+        select * from user
+        where age >= #{minAge} and age &lt;= #{maxAge}
+    </select>
+
+</mapper>
