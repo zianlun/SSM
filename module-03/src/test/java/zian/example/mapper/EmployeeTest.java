@@ -35,4 +35,11 @@ public class EmployeeTest {
         Employee employee = employeeMapper.queryEmpAndDepById(3);
         System.out.println(employee);
     }
+    @Test
+    public void test4(){
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
+        Employee employee = employeeMapper.queryInfoByIdOne(3);
+        System.out.println(employee);
+    }
 }

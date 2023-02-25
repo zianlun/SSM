@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zian.example.mapper.DynamicSQLMapper">
+    <insert id="insertEmployee">
+        insert into employee
+        values(#{employee.empId}, #{employee.empName}, #{employee.age}, #{employee.gender}, #{depId})
+    </insert>
+    <!--去掉方法一生效-->
+    <select id="queryEmployeeByLabel---方法一" resultType="Employee">
+        select * from employee
+        <where>
+            <if test="empName !='' and empName != null "  >
+                emp_name = '${empName}'
+            </if>
+            <if test="age != '' and age > 0" >
+                and age = #{age}
+            </if>
+            <if test="gender != '' and gender != null">
+                and gender = #{gender}
+            </if>
+        </where>
+    </select>
+    <select id="queryEmployeeByLabel" resultType="Employee">
+        select * from employee
+        <trim prefix="where" prefixOverrides="and">
+            <if test="empName !='' and empName != null "  >
+                emp_name = '${empName}'
+            </if>
+            <if test="age != '' and age > 0" >
+                and age = #{age}
+            </if>
+            <if test="gender != '' and gender != null">
+                and gender = #{gender}
+            </if>
+        </trim>
+    </select>
+    <select id="queryEmployByOneLabel" resultType="Employee">
+        select * from employee
+        <where>
+            <choose>
+                <when test="empName != null and empName !='' ">
+                    emp_name = #{empName}
+                </when>
+                <when test="age != null  and age > 0 ">
+                    age = #{age}
+                </when>
+                <when test="gender != null and gender != '' ">
+                    gender = #{gender}
+                </when>
+            </choose>
+        </where>
+    </select>
+    <insert id="insertEmps" useGeneratedKeys="true" keyProperty="empId">
+        insert into employee values
+        <foreach collection="emps" item="emp" separator=",">
+            (null, #{emp.empName}, '${emp.age}', '${emp.gender}', 3)
+        </foreach>
+    </insert>
+    <!--批量删除第二种方式-->
+    <delete id="deleteEmps——方式二">
+        delete from employee where emp_id in
+            <foreach collection="empIds" item="empId" separator="," open="(" close=")">
+                #{empId}
+            </foreach>
+    </delete>
+    <delete id="deleteEmps">
+        delete from employee where
+        <foreach collection="empIds" item="empId" separator="or">
+            emp_id = #{empId}
+        </foreach>
+    </delete>
+</mapper>

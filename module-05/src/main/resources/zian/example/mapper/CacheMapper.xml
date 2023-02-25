@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zian.example.mapper.CacheMapper">
+    <select id="queryEmployee" resultType="Employee">
+        select * from employee
+        where employee.emp_id = #{empId}
+    </select>
+    <update id="updateEmployee">
+        update employee set
+        <trim suffix="where" suffixOverrides=",">
+            <if test="emp.empName !='' and emp.empName != null">
+                emp_name = #{emp.empName},
+            </if>
+            <if test="emp.age != '' and emp.age != null">
+                age = #{emp.age},
+            </if>
+            <if test="emp.gender != '' and emp.gender != null " >
+                gender = #{emp.gender}
+            </if>
+        </trim>
+         emp_id = #{empId}
+    </update>
+</mapper>

@@ -8,6 +8,8 @@
     <artifactId>module-03</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
+
+
         <!-- Mybatis核心 -->
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
         <dependency>
@@ -49,5 +51,12 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-
+<!--    &lt;!&ndash;github的包管理&ndash;&gt;-->
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>github</id>-->
+<!--            <name>SSM Maven Packages</name>-->
+<!--            <url>https://maven.pkg.github.com/zianlun/SSM </url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
 </project>

@@ -13,6 +13,8 @@ plugins?,environments?,databaseIdProvider?,mappers?
     <properties resource="jdbc.properties"/>
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
     </settings>
     <!--设置类型别名-->
     <typeAliases>

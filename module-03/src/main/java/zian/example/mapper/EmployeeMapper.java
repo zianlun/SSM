@@ -30,4 +30,16 @@ interface EmployeeMapper {
    * @Date: 2023/2/23
    */
    Employee queryEmpAndDepById(@Param("id") Integer id);
+   /***
+   * @Description:查询员工信息——分布查询
+   * @Author: ljzhang
+   * @Date: 2023/2/24
+   */
+   Employee queryInfoByIdOne(@Param("empId") Integer empId);
+   /***
+   * @Description:查询一个部门全部员工的信息——分布查询
+   * @Author: ljzhang
+   * @Date: 2023/2/24
+   */
+   Employee queryAllEmpsStepTwo(@Param("depId") Integer depId);
 }

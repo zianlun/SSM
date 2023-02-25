@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zian.example.mapper.DepartmentMapper">
+    <select id="queryInfoByIdTwo" resultType="Department">
+        select * from department where department.dep_id = #{emp_id}
+    </select>
+    <resultMap id="queryAllEmpsMap" type="Department">
+        <id column="dep_id" property="depId"></id>
+        <result column="dep_name" property="depName"></result>
+        <!--
+            collection处理集合的关系
+        -->
+        <collection property="emps"  ofType="Employee">
+            <id column="emp_id" property="empId"></id>
+            <result column="emp_name" property="empName"></result>
+            <result column="age" property="age"></result>
+            <result column="gender" property="gender"></result>
+        </collection>
+    </resultMap>
+    <select id="queryAllEmps" resultMap="queryAllEmpsMap">
+        select * from employee right outer join department
+        on department.dep_id = employee.dep_id
+        where department.dep_id = #{depId}
+    </select>
+    <resultMap id="queryAllEmpsStepOneMap" type="Department">
+        <id column="dep_id" property="depId"></id>
+        <result column="dep_name" property="depName"></result>
+        <collection property="emps"
+                    select="zian.example.mapper.EmployeeMapper.queryAllEmpsStepTwo"
+                    column="dep_id">
+        </collection>
+    </resultMap>
+    <select id="queryAllEmpsStepOne" resultMap="queryAllEmpsStepOneMap">
+        select * from department where department.dep_id = #{depId}
+    </select>
+</mapper>

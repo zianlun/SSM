@@ -1,5 +1,7 @@
 package zian.example.pojo;
 
+import java.util.ArrayList;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -9,7 +11,11 @@ package zian.example.pojo;
  */
 public class Department {
     private Integer depId;
+
     private String depName;
+
+    private ArrayList<Employee> emps;
+
 
     public Department() {
     }
@@ -17,6 +23,14 @@ public class Department {
     public Department(Integer depId, String depName) {
         this.depId = depId;
         this.depName = depName;
+    }
+
+    public ArrayList<Employee> getEmps() {
+        return emps;
+    }
+
+    public void setEmps(ArrayList<Employee> emps) {
+        this.emps = emps;
     }
 
     public Integer getDepId() {
@@ -37,9 +51,10 @@ public class Department {
 
     @Override
     public String toString() {
-        return "department{" +
+        return "Department{" +
                 "depId=" + depId +
                 ", depName='" + depName + '\'' +
+                ", emps=" + emps +
                 '}';
     }
 }

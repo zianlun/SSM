@@ -54,4 +54,20 @@
         left join department on employee.dep_id = department.dep_id
         where emp_id = #{id}
     </select>
+    <resultMap id="queryInfoByIdOneMap" type="Employee">
+        <id column="emp_id" property="empId"></id>
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+        <association property="department"
+                     select="zian.example.mapper.DepartmentMapper.queryInfoByIdTwo"
+                     column="dep_id">
+        </association>
+    </resultMap>
+    <select id="queryInfoByIdOne" resultMap="queryInfoByIdOneMap">
+        select * from employee where employee.emp_id = #{empId}
+    </select>
+    <select id="queryAllEmpsStepTwo" resultType="Employee">
+        select * from employee where employee.dep_id = #{depId}
+    </select>
 </mapper>

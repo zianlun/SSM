@@ -12,13 +12,17 @@ plugins?,environments?,databaseIdProvider?,mappers?
     <!--引入properties文件-->
     <properties resource="jdbc.properties"/>
     <settings>
+        <!--sql下划线命名对应java驼峰命名映射-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--延迟加载的两个标签-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
     </settings>
     <!--设置类型别名-->
     <typeAliases>
         <!--
 typeAlias：设置某个类型的别名
-属性：
+属性：4
 type：设置需要设置别名的类型
 alias：设置某个类型的别名，若不设置该属性，那么该类型拥有默认的别名，即类名
 且不区分大小写
