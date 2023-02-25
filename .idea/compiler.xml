@@ -11,6 +11,7 @@
         <module name="module-05" />
         <module name="module-01" />
         <module name="module-02" />
+        <module name="moudule-06" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,6 +20,7 @@
       <module name="module-03" target="17" />
       <module name="module-04" target="17" />
       <module name="module-05" target="17" />
+      <module name="moudule-06" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

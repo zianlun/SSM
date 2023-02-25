@@ -17,20 +17,26 @@ plugins?,environments?,databaseIdProvider?,mappers?
         <!--延迟加载的两个标签-->
         <setting name="lazyLoadingEnabled" value="true"/>
         <setting name="aggressiveLazyLoading" value="false"/>
+        <!--设置类型别名-->
     </settings>
-    <!--设置类型别名-->
     <typeAliases>
         <!--
 typeAlias：设置某个类型的别名
-属性：4
+属性：
 type：设置需要设置别名的类型
 alias：设置某个类型的别名，若不设置该属性，那么该类型拥有默认的别名，即类名
 且不区分大小写
 -->
         <!--<typeAlias type="com.atguigu.mybatis.pojo.User"></typeAlias>-->
         <!--以包为单位，将包下所有的类型设置默认的类型别名，即类名且不区分大小写-->
-        <package name="zian.example.pojo"/>
+        <package name="zian.example.mapper.pojo"/>
     </typeAliases>
+    <plugins>
+        <!-- com.github.pagehelper为PageHelper类所在包名 -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- 使用下面的方式配置参数，后面会有所有的参数介绍 -->
+        </plugin>
+    </plugins>
     <!--
 environments：配置多个连接数据库的环境
 属性：
