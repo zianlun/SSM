@@ -1,5 +1,7 @@
 package zian.example.pojo;
 
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -7,7 +9,7 @@ package zian.example.pojo;
  * @Date: 2023/02/24/22:09
  * @Description:
  */
-public class Employee {
+public class Employee implements Serializable {
     private Integer empId;
 
     private String empName;
