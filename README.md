@@ -232,7 +232,7 @@ property:设置映射关系中的属性名，必须是处理的实体类类型�
 
 ### Spring Framework
 
-##### log4j配置文件
+##### log4j2配置文件
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
