@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!--
+        scope:设置bean的作用域
+        scope：“signleton|prototype”
+        singleton(单例):表示获取bean所对应的对象都是同一个
+        prototype(多例):表示获取bean所对应的对象都都不是同一个
+        1、实例化
+        2、依赖注入
+        3、后置处理器的postProcessBeforeInitialzation
+        4、初始化、需要通过bean的init-method属性指定初始化的方法
+        6、后迁至处理器postProcessAfterInititalzation
+        5、IOC容器关闭时销毁、需要通过bean的destory-method属性指定销毁的方法
+
+        bean的后置处理器会在声明周期的初始化前后添加额外的操作
+        需要实现BeanPostProcessor接口且配置到ioc容器中
+        需要注意的是，bean后置处理器并不是单独针对某一个bean1生效，而是针对ioc容器中的所有bean都会执行。
+
+        注意：
+        若bean的作用域为单例时，生命周期的前三个步骤会在获取ioc容器时执行
+        若bean的作用域为多例时，生命周期的前三个步骤会在获取bean时进行
+   -->
+    <bean id="user"
+          class="zian.example.pojo.User"
+          scope="singleton"
+          init-method="init"
+          destroy-method="destory">
+        <property name="id" value="1002"></property>
+        <property name="username" value="ljzhang"></property>
+        <property name="password" value="1000193728"></property>
+        <property name="age" value="18"></property>
+    </bean>
+
+</beans>

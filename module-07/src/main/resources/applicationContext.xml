@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <!--
+        bean:配置一个bean对象，将对象交给ICO容器管理
+        id:bean的唯一标识，不能重复
+        class:设置bean对象所对应的类型
+    -->
+    <bean id="user" class="zian.example.pojo.User"></bean>
+    <bean id="studentOne" class="zian.example.pojo.Student">
+        <!--
+            property:通过成员变量set方法进行赋值
+            name:设置需要赋值的属性名
+            value：设置为属性所赋的值
+        -->
+        <property name="sName" value="ljzhang"></property>
+        <property name="sId" value="10086"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+    </bean>
+    <bean id="studentTwo" class="zian.example.pojo.Student">
+        <constructor-arg value="1002"></constructor-arg>
+        <constructor-arg value="zian"></constructor-arg>
+        <constructor-arg value="18"></constructor-arg>
+        <constructor-arg value="男"></constructor-arg>
+    </bean>
+    <!--
+        奇奇怪怪的东西
+        <:&lt;
+        >:&gt;
+        <![CDATA[]]>:[]里面可以写任何东西，不会解析为xml语法
+    -->
+    <bean id="studentThree" class="zian.example.pojo.Student">
+        <property name="sName">
+            <value>  <![CDATA[<>>>>>]]> </value>
+        </property>
+        <property name="gender">
+            <value> &lt; &gt; </value>
+        </property>
+    </bean>
+
+    <bean id="studentFour" class="zian.example.pojo.Student">
+        <property name="sId" value="10086"></property>
+        <property name="sName" value="ljzhang"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+        <property name="clazz" ref="clazzOne"></property>
+    </bean>
+    <bean id="clazzOne" class="zian.example.pojo.Clazz">
+        <property name="cId" value="1001"></property>
+        <property name="cName" value="智能科学202"></property>
+    </bean>
+
+    <bean id="studentFive" class="zian.example.pojo.Student">
+        <property name="sId" value="10086"></property>
+        <property name="sName" value="ljzhang"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+        <!--
+            要引入一个外部bean，因为此时clazz对象还没有创建，不能访问对象的属性
+            相当于修改外部bean的属性
+            总结：级联的方式要保证对象属性赋值或者实例化
+        -->
+        <property name="clazz" ref="clazzOne"></property>
+        <property name="clazz.cId" value="10097"></property>
+        <property name="clazz.cName" value="计算据科学与技术202"></property>
+    </bean>
+    <!--内部bean的使用-->
+    <bean id="studentSix" class="zian.example.pojo.Student">
+        <property name="sId" value="10086"></property>
+        <property name="sName" value="ljzhang"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+        <property name="clazz">
+            <bean id="clazzInner" class="zian.example.pojo.Clazz">
+                <property name="cId" value="1001"></property>
+                <property name="cName" value="智能科学201"></property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="studentEleven" class="zian.example.pojo.Student">
+        <property name="sId" value="10086"></property>
+        <property name="sName" value="ljzhang"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+        <property name="clazz">
+            <bean id="clazzInner" class="zian.example.pojo.Clazz">
+                <property name="cId" value="1001"></property>
+                <property name="cName" value="智能科学201"></property>
+            </bean>
+        </property>
+        <property name="hobby">
+            <array>
+                <value>唱</value>
+                <value>跳</value>
+                <value>rap</value>
+                <value>打篮球</value>
+            </array>
+        </property>
+    </bean>
+    <bean id="clazzTwo" class="zian.example.pojo.Clazz">
+        <property name="cId" value="1234"></property>
+        <property name="cName" value="计算机"></property>
+        <property name="stus">
+            <list>
+                <ref bean="studentOne"></ref>
+                <ref bean="studentTwo"></ref>
+                <ref bean="studentThree"></ref>
+                <ref bean="studentFour"></ref>
+                <ref bean="studentFive"></ref>
+                <ref bean="studentSix"></ref>
+                <ref bean="studentEleven"></ref>
+            </list>
+        </property>
+    </bean>
+    <util:list id="studentList">
+        <ref bean="studentOne"></ref>
+        <ref bean="studentTwo"></ref>
+        <ref bean="studentThree"></ref>
+        <ref bean="studentFour"></ref>
+        <ref bean="studentFive"></ref>
+        <ref bean="studentSix"></ref>
+        <ref bean="studentEleven"></ref>
+    </util:list>
+    <bean id="clazzThree" class="zian.example.pojo.Clazz">
+        <property name="cId" value="1234"></property>
+        <property name="cName" value="计算机"></property>
+        <property name="stus" ref="studentList"></property>
+    </bean>
+    <bean id="teacherOne" class="zian.example.pojo.Teacher">
+        <property name="tId" value="10086"></property>
+        <property name="tName" value="张双"></property>
+    </bean>
+    <bean id="teacherTwo" class="zian.example.pojo.Teacher">
+        <property name="tId" value="10085"></property>
+        <property name="tName" value="张和彬"></property>
+    </bean>
+    <bean id="studentEight" class="zian.example.pojo.Student">
+        <property name="sId" value="10086"></property>
+        <property name="sName" value="ljzhang"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+        <property name="clazz">
+            <bean id="clazzInner" class="zian.example.pojo.Clazz">
+                <property name="cId" value="1001"></property>
+                <property name="cName" value="智能科学201"></property>
+            </bean>
+        </property>
+        <property name="hobby">
+            <array>
+                <value>唱</value>
+                <value>跳</value>
+                <value>rap</value>
+                <value>打篮球</value>
+            </array>
+        </property>
+        <property name="teachers">
+            <map>
+                <entry key="10086" value-ref="teacherOne"></entry>
+                <entry key="10085" value-ref="teacherTwo"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="studentNine" class="zian.example.pojo.Student">
+        <property name="sId" value="10086"></property>
+        <property name="sName" value="ljzhang"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+        <property name="clazz">
+            <bean id="clazzInner" class="zian.example.pojo.Clazz">
+                <property name="cId" value="1001"></property>
+                <property name="cName" value="智能科学201"></property>
+            </bean>
+        </property>
+        <property name="hobby">
+            <array>
+                <value>唱</value>
+                <value>跳</value>
+                <value>rap</value>
+                <value>打篮球</value>
+            </array>
+        </property>
+        <property name="teachers" ref="mapTeacher">
+        </property>
+    </bean>
+    <util:map id="mapTeacher">
+        <entry key="10086" value-ref="teacherOne"></entry>
+        <entry key="10085" value-ref="teacherTwo"></entry>
+    </util:map>
+    <bean id="studentTen" class="zian.example.pojo.Student"
+          p:sId="10087"
+          p:sName="ljzhang"
+          p:age="10"
+          p:gender="男">
+    </bean>
+</beans>

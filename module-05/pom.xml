@@ -40,12 +40,6 @@
             <artifactId>log4j</artifactId>
             <version>1.2.12</version>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.mybatis.caches/mybatis-ehcache -->
         <!--ehcache的整合包——第三方缓存-->
         <dependency>
