@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--
+           @Component:将类标识为普通组件
+           @Controller：将类标识为控制层组件
+           @Service：将类标识为业务层组件
+           @Repository：将类标识为持久层组件
+    -->
+    <!--
+        扫描操作：扫描注解，spring为了找到什么地方标记了注解，需要通过扫描操作
+        进行检测，然后根据注解进行后续操作
+        type：设置排除或包含的依据
+        type="annotation"，根据注解排除，expression中设置要排除的注解的全类名
+        type="assignable"，根据类型排除，expression中设置要排除的类型的全类名
+        use-default-filters=""
+            ————false：默认全部不排除
+            ————true: 默认排除
+    -->
+    <context:component-scan base-package="zian.example.controller
+            zian.example.service.impl
+            zian.example.dao.impl">
+
+
+   <!--     &lt;!&ndash;不扫描&ndash;&gt;
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="assignable" expression="zian.example.controller.UserController"/>
+
+        &lt;!&ndash;扫描&ndash;&gt;
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="assignable" expression="zian.example.controller.UserController"/>-->
+    </context:component-scan>
+
+
+</beans>
