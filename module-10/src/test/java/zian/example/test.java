@@ -14,9 +14,10 @@ import zian.example.pojo.Calculator;
  */
 public class test {
     @Test
-    public void test1(){
+    public void test1() throws Exception {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("aop-annotation.xml");
         Calculator calculator = ioc.getBean(Calculator.class);
-        calculator.add(2,10);
+        calculator.div(2,2);
+        System.out.println(Integer.MAX_VALUE + "最小"+ Integer.MIN_VALUE);
     }
 }

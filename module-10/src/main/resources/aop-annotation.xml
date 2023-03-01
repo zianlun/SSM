@@ -10,8 +10,10 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd ">
     <!--
-        切面类和目标类都需要交给ioc容器管理
-        @Aspect将当前组件标识为一个切面
+        基于注解的AOP的实现：
+        1、将目标对象和切面交给IOC容器管理（注解+扫描）
+        2、开启AspectJ的自动代理，为目标对象自动生成代理
+        3、将切面类通过注解@Aspect标识
     -->
     <context:component-scan base-package="zian.example.pojo">
     </context:component-scan>

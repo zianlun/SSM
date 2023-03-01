@@ -1,10 +1,7 @@
 package zian.example.pojo;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -43,17 +40,58 @@ public class LoggerAspect {
     public void pointCut(){};
 
 
+    /***
+    * @Description:获取连接点信息——设置JoinPoint类型的形参
+    * @Author: ljzhang
+    * @Date: 2023/2/28
+    */
     @Before("pointCut()")
     public void beforeAdviceMethod(JoinPoint joinPoint){
-        System.out.println("前置通知, 调用方法" + joinPoint.getSignature().getName());
+        System.out.println("【日志】前置通知 ----- 调用方法" + joinPoint.getSignature().getName());
         Object[] args = joinPoint.getArgs();
-        System.out.println(Arrays.toString(args).toString());
+        System.out.println("【日志】参数信息 ----" + Arrays.toString(args).toString());
     }
 
     @After("pointCut()")
     public void afterAdviceMethod(JoinPoint joinPoint){
-        System.out.println("后置通知, 调用方法" + joinPoint.getSignature().getName());
+        System.out.println("【日志】后置通知 ----- 方法结束" + joinPoint.getSignature().getName());
         System.out.println(joinPoint.getSignature().getDeclaringTypeName());
     }
+
+    /***
+     * @Description:获取目标方法的返回值
+     * @Author: ljzhang
+     * @Date: 2023/2/28
+     */
+    @AfterReturning(value="pointCut()", returning="result")
+    public void afterReturingAdviceMethod(JoinPoint joinPoint, Object result){
+        System.out.println("【日志】返回通知 ---- 返回参数：" + result);
+    }
+
+    @AfterThrowing(value="pointCut()", throwing="throwable")
+    public void afterThrowingAdviceMethod(JoinPoint joinPoint, Throwable throwable){
+        System.out.println("【日志】异常通知 ---- 抛出异常：" + throwable);
+    }
+
+    /***环绕通知
+    * @Description:
+    * @Author: ljzhang
+    * @Date: 2023/2/28
+    */
+   /* @Around("pointCut()")
+    public Object aroundAdviceMethod(ProceedingJoinPoint joinPoint){
+        Object result = null;
+        try {
+            System.out.println("环绕通知-----前置通知");
+            result = joinPoint.proceed();
+            System.out.println("环绕通知-----返回通知");
+        } catch (Throwable throwable) {
+            System.out.println("环绕通知-----异常通知");
+            throwable.printStackTrace();
+        } finally {
+            System.out.println("环绕通知-----后置通知");
+        }
+        return result;
+    }*/
 
 }
