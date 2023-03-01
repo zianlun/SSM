@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd ">
+    <context:component-scan base-package="zian.example.aopXml"></context:component-scan>
+    <aop:config>
+        <aop:aspect ref="loggerAspect">
+            <aop:pointcut id="pointCut" expression="execution(* zian.example.aopXml.CalculatorImpl.*(..))"/>
+            <aop:before method="beforeAdviceMethod" pointcut-ref="pointCut"></aop:before>
+            <aop:after method="afterAdviceMethod" pointcut="execution(* zian.example.aopXml.CalculatorImpl.*(..))"></aop:after>
+            <aop:after-returning method="afterReturingAdviceMethod" pointcut-ref="pointCut" returning="result"></aop:after-returning>
+            <aop:after-throwing method="afterThrowingAdviceMethod" pointcut-ref="pointCut" throwing="throwable"></aop:after-throwing>
+        </aop:aspect>
+    </aop:config>
+</beans>

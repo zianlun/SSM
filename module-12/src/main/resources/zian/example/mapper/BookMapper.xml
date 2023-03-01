@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zian.example.mapper.BookMapper">
+    <update id="updateStack" >
+        update t_book set stock = stock - 1
+        where book_id = #{bookId}
+    </update>
+    <select id="queryBookPrice" resultType="double">
+        select price from t_book
+        where book_id = #{bookId}
+    </select>
+
+    <resultMap id="bookMapper" type="Book">
+        <id property="bookId" column="book_id"></id>
+        <result property="bookName" column="book_name"></result>
+        <result property="price" column="price"></result>
+        <result property="stock" column="stock"></result>
+    </resultMap>
+
+    <select id="queryAllBook" resultMap="bookMapper">
+        select * from t_book
+    </select>
+</mapper>
