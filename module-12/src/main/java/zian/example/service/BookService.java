@@ -10,4 +10,6 @@ package zian.example.service;
 public interface BookService {
 
     boolean buyBook(Integer userId, Integer bookId);
+
+    boolean checkOut(Integer userId, Integer[] books);
 }

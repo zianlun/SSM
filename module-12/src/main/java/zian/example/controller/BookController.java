@@ -27,6 +27,10 @@ public class BookController {
         return bookService.buyBook(userId,bookId);
     }
 
+    public boolean checkOut(Integer userId, Integer[] books){
+        return bookService.checkOut(userId, books);
+    }
+
     public BookController() {
     }
 

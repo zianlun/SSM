@@ -2,6 +2,7 @@ package zian.example.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import zian.example.Utils.SqlSessionUtil;
 import zian.example.mapper.UserMapper;
 import zian.example.service.UserService;
 
@@ -15,12 +16,11 @@ import zian.example.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserMapper userDao;
+    private UserMapper userDao = SqlSessionUtil.getSqlSession().getMapper(UserMapper.class);
 
     public UserServiceImpl() {
     }
 
-    @Autowired
     public UserServiceImpl(UserMapper userDao) {
         this.userDao = userDao;
     }
