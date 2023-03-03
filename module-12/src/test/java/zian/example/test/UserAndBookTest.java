@@ -24,6 +24,13 @@ public class UserAndBookTest {
     private BookController bookController;
     @Test
     public void test1(){
-        System.out.println(bookController.buyBook(1, 2));
+        System.out.println(bookController.buyBook(1, 1));
+
     }
+    @Test
+    public void test2(){
+        System.out.println(bookController.checkOut(1, new Integer[]{1,2,3}));
+
+    }
+
 }
