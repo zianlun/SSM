@@ -306,3 +306,60 @@ property:设置映射关系中的属性名，必须是处理的实体类类型�
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd ">
 ```
+```xml
+第一种方式是将常用的命名空间都记录下来，需要时复制黏贴导入，但现在此种方式不建议。
+1.util标签用来配置集合、常量等的
+xmlns:util="http://www.springframework.org/schema/util"
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+
+
+2.jee标签用来处理javaee标准相关的问题，例如查询一个jndi对象以及定义一个ejb的引用等  
+xmlns:jee="http://www.springframework.org/schema/jee"   
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+
+
+3.lang用来将那些已经被定义在一些动态语言（例如Jruby和Groovy）中的对象作为beans中的对象存放到spring容器中
+xmlns:lang="http://www.springframework.org/schema/lang"
+http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+
+
+4.jms :
+xmlns:jms="http://www.springframework.org/schema/jms"
+http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+
+5.aop :
+xmlns:aop="http://www.springframework.org/schema/aop"   
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+
+6.context 
+xmlns:context="http://www.springframework.org/schema/context"
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+
+7.jdbc
+xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+
+8.cache 
+xmlns:jdbc="http://www.springframework.org/schema/cache"
+http://www.springframework.org/schema/cache http://www.springframework.org/schema/jdbc/spring-cache.xsd
+
+9.tx (transaction事务管理) 使用时建议配合aop:
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:tx="http://www.springframework.org/schema/tx"
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+
+10.p命名空间，进行简化bean的创建，属性的注入书写方式
+xmlns:p="http://www.springframework.org/schema/p"
+
+11.mybatis-spring
+xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+
+
+12.mvc
+xmlns:mvc=”http://www.springframework.org/schema/mvc”
+xsi:schemaLocation=”http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd”
+
+```

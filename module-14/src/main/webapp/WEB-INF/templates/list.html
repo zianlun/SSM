@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+</head>
+<body>
+<table>
+    <h1>员工列表</h1>
+    <tr th:each="emp : ${emps}">
+        <td th:text="${emp.id}"></td>
+        <td th:text="${emp.name}"></td>
+        <td th:text="${emp.email}"></td>
+        <td th:text="${emp.gender}"></td>
+        <td>
+            <a href="">修改信息</a>
+            <a href="">删除员工</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -6,7 +6,6 @@
         <exploded>true</exploded>
         <module>module-13</module>
         <packaging>war</packaging>
-        <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
     <root id="root">
@@ -15,14 +14,14 @@
           <element id="module-output" name="module-13" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.1" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.3.1" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.3.1" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.3.1" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.3.1" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.3.1" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.3.1" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.18" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.3.18" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.3.18" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.3.18" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.3.18" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.3.18" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.3.18" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.18" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/module-13" />
+    <file type="web" url="file://$PROJECT_DIR$/module-14" />
+    <type id="Spring" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -20,10 +22,11 @@
         <option value="$PROJECT_DIR$/module-11/pom.xml" />
         <option value="$PROJECT_DIR$/module-12/pom.xml" />
         <option value="$PROJECT_DIR$/module-13/pom.xml" />
+        <option value="$PROJECT_DIR$/module-14/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="SuppressABINotification">
