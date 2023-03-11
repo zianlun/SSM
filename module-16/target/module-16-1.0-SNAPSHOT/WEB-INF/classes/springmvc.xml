@@ -54,4 +54,19 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"></property>
     </bean>
+    <!--请求拦截器-->
+    <mvn:interceptors>
+        <bean class="zian.example.interceptor.FirstInterceptor"></bean>
+    </mvn:interceptors>
+   <!-- &lt;!&ndash;配置自定义异常处理——避免代码泄露&ndash;&gt;
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        &lt;!&ndash;异常页面跳转&ndash;&gt;
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.ArithmeticException">error</prop>
+            </props>
+        </property>
+        &lt;!&ndash;共享请求域的异常信息  value——异常信息的名字&ndash;&gt;
+        <property name="exceptionAttribute" value="ex"></property>
+    </bean>-->
 </beans>
