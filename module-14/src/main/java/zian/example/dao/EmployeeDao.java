@@ -28,6 +28,8 @@ public class EmployeeDao {
         emps.put(id,new Employee(id++,"玉子安","3133@qq.com",0));
         emps.put(id,new Employee(id++,"ljzhang","3213@qq.com",0));
         emps.put(id,new Employee(id++,"zian","3123@qq.com",1));
+        emps.put(id,new Employee(id++,"杰安","3123@qq.com",1));
+        emps.put(id,new Employee(id++,"晓峰","3123@qq.com",1));
     }
 
     public EmployeeDao() {
@@ -37,7 +39,8 @@ public class EmployeeDao {
         if(employee.getId() == null){
             employee.setId(id++);
         }
-        emps.put(id,employee);
+        emps.put(employee.getId(),employee);
+        System.out.println(emps);
         return true;
     }
 

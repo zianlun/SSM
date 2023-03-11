@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+  <div id="app">
+      <h1>首页</h1>
+      <input @click="request()" type="button" value="测试axios请求" />  <br>
+      <input @click="requestBody()" type="button" value="测试axios.Post请求" /> <br>
+      <input @click="requestMap()" type="button" value="测试axios.Post请求用map收集" /> <br>
+      <input @click="requestResponse()" type="button" value="测试ResponseBody" /> <br>
+      <input @click="requestUser()" type="button" value="获取用户信息" /> <br>
+      <a th:href="@{/test/download}"><img src="img/壁纸02.jpg" width="20px" height="20px"></a>
+      <form th:action="@{/test/upload}" method="post" enctype="multipart/form-data">
+          头像：<input type="file" name="photo">
+          <input type="submit" value="上传">
+      </form>
+  </div>
+<script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/axios.min.js}"></script>
+<script type="text/javascript">
+    /* **
+        axios({
+            url:'',  //请求路径
+            method:'',  //请求方式
+            //以name=value&name=value的方式发送的请求参数
+            //不管使用的请求方式是get还是post，请求参数都会杯拼接到请求地址后
+            //此种方式的请求参数通过request.getParamter()获取
+            params:{},
+            //以json格式发送的请求参数， 请求参数会被保存到请求报文的请求体传输到服务器
+            //此种方式的请求参数通过request.getBody()获取
+            data:{}
+        }).then(response => {
+            console.log(response.data)
+        });
+       */
+    var vue = new Vue({
+        el:"#app",
+        methods:{
+            request(){
+                axios({
+                    url:'/SpringMVC/test/hello?id=10086',
+                    method:'post',
+                    params:{username:'ljzhang',password:'123456'},
+                    data:{gender:'男', age:18}
+                }).then(response => {
+                    console.log(response.data)
+                });
+            },
+            requestBody(){
+                axios.post(
+                    "/SpringMVC/test/jsonTest",
+                    {
+                        username:'ljzhang',
+                        password:'1235456',
+                        emaile:'3131939@qq.com',
+                        gender:'男'
+                    }
+                ).then(response => {
+                    console.log(response.data)
+                }).catch(error => {
+                    console.log(error)
+                });
+            },
+            requestMap(){
+                axios.post(
+                    "/SpringMVC/test/mapTest",
+                    {
+                        username:'ljzhang',
+                        password:'1235456',
+                        emaile:'3131939@qq.com',
+                        gender:'男'
+                    }
+                ).then(response => {
+                    console.log(response.data)
+                }).catch(error => {
+                    console.log(error)
+                });
+            },
+            requestResponse(){
+                axios.post(
+                    "/SpringMVC/test/responseTest",
+                    {
+                        username:'ljzhang',
+                        password:'1235456',
+                        emaile:'3131939@qq.com',
+                        gender:'男'
+                    }
+                ).then(response => {
+                    console.log(response.data)
+                }).catch(error => {
+                    console.log(error)
+                });
+            },
+            requestUser(){
+                axios.get(
+                    "/SpringMVC/test/getUser",
+                ).then(response => {
+                    console.log(response)
+                }).catch(error => {
+                    console.log(error)
+                });
+            },
+
+        }
+    })
+</script>
+</body>
+</html>

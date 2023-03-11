@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:mvn="http://www.springframework.org/schema/mvc"
+       xmlns:mvn="http://www.springframework.org/schema/mvc" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
@@ -36,6 +36,9 @@
     </bean>
     <context:component-scan base-package="zian.example.controller">
     </context:component-scan>
+    <!--默认的servlet处理静态资源-->
+    <mvc:default-servlet-handler/>
+
     <!--开启mvc的注解驱动-->
     <mvn:annotation-driven />
     <!--
@@ -45,4 +48,5 @@
     -->
 
     <mvn:view-controller path="/" view-name="index"></mvn:view-controller>
+    <mvn:view-controller path="/employee/add" view-name="add"></mvn:view-controller>
 </beans>
