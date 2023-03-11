@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$USER_HOME$/IdeaProjects/module-15" />
     <file type="web" url="file://$PROJECT_DIR$/module-13" />
     <file type="web" url="file://$PROJECT_DIR$/module-14" />
+    <file type="web" url="file://$PROJECT_DIR$/module-15" />
     <type id="Spring" />
   </component>
   <component name="MavenProjectsManager">
@@ -23,6 +25,7 @@
         <option value="$PROJECT_DIR$/module-12/pom.xml" />
         <option value="$PROJECT_DIR$/module-13/pom.xml" />
         <option value="$PROJECT_DIR$/module-14/pom.xml" />
+        <option value="$PROJECT_DIR$/module-15/pom.xml" />
       </list>
     </option>
   </component>

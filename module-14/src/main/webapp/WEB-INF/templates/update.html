@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>update</title>
+  <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<form th:action="@{/updateEmployee}" method="post">
+  <input type="hidden" name="_method" value="put"/>
+  <input type="hidden" name="id" th:value="${employee.id}"/>
+  <table>
+    <th colspan="2">update employee</th>
+    <tr>
+      <td>员工姓名</td>
+      <td><input type="text" name="name" th:value="${employee.name}"/></td>
+    </tr>
+    <tr>
+      <td>邮箱地址</td>
+      <td><input type="text" name="email" th:value="${employee.email}"/></td>
+    </tr>
+    <tr>
+      <td>员工性别</td>
+      <td>
+        男<input type="radio" value="1" name="gender" th:field="${employee.gender}"/>
+        女<input type="radio" value="0" name="gender" th:field="${employee.gender}"/>
+      </td>
+    </tr>
+    <th colspan="2">
+      <button type="submit">update employee</button>
+    </th>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+<form th:action="@{/addEmployee}" method="post">
+  <table>
+    <th colspan="2">add employee</th>
+    <tr>
+      <td>员工姓名</td>
+      <td><input type="text" name="name"/></td>
+    </tr>
+    <tr>
+      <td>邮箱地址</td>
+      <td><input type="text" name="email"/></td>
+    </tr>
+    <tr>
+      <td>员工性别</td>
+      <td>
+        男<input type="radio" value="1" name="gender"/>
+        女<input type="radio" value="0" name="gender"/>
+      </td>
+    </tr>
+    <th colspan="2">
+      <button type="submit">add employee</button>
+    </th>
+  </table>
+</form>
+</body>
+</html>
