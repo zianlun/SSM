@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="module-07" />
+        <module name="module-18" />
         <module name="module-08" />
         <module name="module-09" />
         <module name="module-03" />
@@ -36,7 +37,7 @@
       <module name="module-07" target="16" />
       <module name="module-08" target="16" />
       <module name="module-09" target="16" />
-      <module name="module-10" target="16" />
+      <module name="module-10" target="17" />
       <module name="module-11" target="16" />
       <module name="module-12" target="16" />
       <module name="module-13" target="16" />
@@ -44,6 +45,7 @@
       <module name="module-15" target="17" />
       <module name="module-16" target="17" />
       <module name="module-17" target="17" />
+      <module name="module-18" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
