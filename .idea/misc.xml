@@ -5,6 +5,8 @@
     <file type="web" url="file://$PROJECT_DIR$/module-13" />
     <file type="web" url="file://$PROJECT_DIR$/module-14" />
     <file type="web" url="file://$PROJECT_DIR$/module-15" />
+    <file type="web" url="file://$PROJECT_DIR$/module-16" />
+    <file type="web" url="file://$PROJECT_DIR$/module-17" />
     <type id="Spring" />
   </component>
   <component name="MavenProjectsManager">
@@ -26,6 +28,8 @@
         <option value="$PROJECT_DIR$/module-13/pom.xml" />
         <option value="$PROJECT_DIR$/module-14/pom.xml" />
         <option value="$PROJECT_DIR$/module-15/pom.xml" />
+        <option value="$PROJECT_DIR$/module-16/pom.xml" />
+        <option value="$PROJECT_DIR$/module-17/pom.xml" />
       </list>
     </option>
   </component>

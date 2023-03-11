@@ -14,7 +14,9 @@
         <module name="module-04" />
         <module name="module-15" />
         <module name="module-05" />
+        <module name="module-16" />
         <module name="module-06" />
+        <module name="module-17" />
         <module name="module-10" />
         <module name="module-11" />
         <module name="module-01" />
@@ -39,7 +41,9 @@
       <module name="module-12" target="16" />
       <module name="module-13" target="16" />
       <module name="module-14" target="16" />
-      <module name="module-15" target="16" />
+      <module name="module-15" target="17" />
+      <module name="module-16" target="17" />
+      <module name="module-17" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
