@@ -20,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/module-16/module-16.iml" filepath="$PROJECT_DIR$/module-16/module-16.iml" />
       <module fileurl="file://$PROJECT_DIR$/module-17/module-17.iml" filepath="$PROJECT_DIR$/module-17/module-17.iml" />
       <module fileurl="file://$PROJECT_DIR$/module-18/module-18.iml" filepath="$PROJECT_DIR$/module-18/module-18.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module-ssm/module-ssm.iml" filepath="$PROJECT_DIR$/module-ssm/module-ssm.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工列表[分页功能实现]</title>
+    <link rel="stylesheet" th:href="@{/static/css/index_work.css}">
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="6">员工列表</th>
+        </tr>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>邮箱</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="emp : ${page.list}">
+            <td th:text="${emp.empId}"></td>
+            <td th:text="${emp.empName}"></td>
+            <td th:text="${emp.age}"></td>
+            <td th:text="${emp.sex}"></td>
+            <td th:text="${emp.email}"></td>
+            <td>
+                <a>删除</a>
+                <a>修改</a>
+            </td>
+        </tr>
+    </table>
+<div style="text-align: center">
+    <a th:if="${!page.isFirstPage}" th:href="@{/emp/pageEmployee/1}">首页</a>
+    <a th:if="${!page.isFirstPage}" th:href="@{'/emp/pageEmployee/'+${page.pageNum-1}}">上一页</a>
+    <div th:each="pageNum : ${page.navigatepageNums}" style="display: inline">
+        <a th:text="${pageNum}" th:href="@{'/emp/pageEmployee/'+${pageNum}}"></a>
+    </div>
+    <a th:if="${!page.isLastPage}" th:href="@{'/emp/pageEmployee/'+${page.pageNum+1}}">下一页</a>
+    <a th:if="${!page.isLastPage}" th:href="@{'/emp/pageEmployee/'+${page.pages}}">尾页</a>
+</div>
+</body>
+</html>

@@ -48,7 +48,7 @@ body {
 	font-family: 'trebuchet MS', 'Lucida sans', Arial;
 	font-size: 14px;
 	color: #444;
-	background: url(../css/img/body1.jpg);
+	background: url(img/body1.jpg);
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 	/* background: #F5F5F5; */
@@ -66,7 +66,7 @@ table {
 }
 
 table thead th {
-	background:url(../css/img/zebratable.png);
+	background:url(img/zebratable.png);
 	background-repeat:no-repeat;
 	background-position: 0px center;
 }

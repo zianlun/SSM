@@ -19,6 +19,7 @@
         <module name="module-06" />
         <module name="module-17" />
         <module name="module-10" />
+        <module name="module-ssm" />
         <module name="module-11" />
         <module name="module-01" />
         <module name="module-12" />
@@ -37,15 +38,16 @@
       <module name="module-07" target="16" />
       <module name="module-08" target="16" />
       <module name="module-09" target="16" />
-      <module name="module-10" target="17" />
+      <module name="module-10" target="16" />
       <module name="module-11" target="16" />
       <module name="module-12" target="16" />
       <module name="module-13" target="16" />
       <module name="module-14" target="16" />
-      <module name="module-15" target="17" />
-      <module name="module-16" target="17" />
-      <module name="module-17" target="17" />
-      <module name="module-18" target="17" />
+      <module name="module-15" target="16" />
+      <module name="module-16" target="16" />
+      <module name="module-17" target="16" />
+      <module name="module-18" target="16" />
+      <module name="module-ssm" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
